@@ -63,5 +63,6 @@ public class ResProfile implements Serializable{
     // public String getRes_kaigyou(){
     //     return kaigyou;
     // }
+    //てすと
 
 }
