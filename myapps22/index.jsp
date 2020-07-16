@@ -14,6 +14,7 @@
 				スレッドのタイトル<input type='text' name='th_title' required><br>
 									<input type="submit"></button>
 								</form>
+								<!--  test-->
 			</div>
 			<br><br>
 			<div class="threadbox">
