@@ -1,11 +1,11 @@
 body {
 	font-family: 'Press Start 2P', cursive;
-	background-image: url("../images/topPage.png");
+	background-image: url("images/topPage.png");
 }
 
 .th_cre {
 	text-align:  center;
-	color: #ffffff; 
+	color: #ffffff;
 	padding: 15px;
 }
 .th_cate,.th_cate span {
