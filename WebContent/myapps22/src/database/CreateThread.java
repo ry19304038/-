@@ -1,21 +1,12 @@
 
 package database;
 
-import java.io.IOException;
-
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.SQLException;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
-import java.math.BigDecimal;
-
-import java.util.Calendar;
-import java.util.Date;
-import java.text.SimpleDateFormat;
 
 import bean.ThreadListProfile;
 
@@ -28,30 +19,21 @@ public class CreateThread{
 			String th_name=cbean.getTh_name();
 			String th_category=cbean.getTh_category();
 			String th_description=cbean.getTh_description();
-			String th_date=cbean.getTh_date();
 			System.out.println(th_title);
 			System.out.println(th_name);
+
+
 
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 			System.out.println("CreateThread");
 
-			//Oracle‚ÉÚ‘±‚·‚é
 			Connection cn=
 				DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl",
 				"cprimeuser","cprime");
-			System.out.println("Ú‘±Š®—¹");
-
-			//select•¶
-			// ‘¼‚Ì‚ğ‚â‚è‚½‚©‚Á‚½‚ç‚±‚±‚ğ•Ï‚¦‚é
-			// String sql=" SELECT empno,ename FROM emp";
-
-			// ƒXƒŒƒbƒhID‚ÌÅŒã‚ğæ“¾
-			// String thred_id="SELECT MAX(th_id)+1 FROM board_thread";
-			// ¨NULL‚ª–ß‚Á‚Ä‚­‚é
-
-			// th_id‚ÌÅ‘å‚ğ‹‚ßAisEmpty‚ÅNULL‚©‚Ì”»’è‚ğs‚Á‚Ä‚¢‚é
 
 
+
+//			th_idã‚’æ±‚ã‚ã‚‹
 			String sql="SELECT MAX(th_id) FROM board_thread";
 			Statement st=cn.createStatement();
 			ResultSet rs=st.executeQuery(sql);
@@ -68,23 +50,17 @@ public class CreateThread{
 
 			sql="INSERT INTO board_thread(th_id, th_title, th_name, th_category, th_description)VALUES("+thread_id1+",'"+th_title+"','"+th_name+"', '"+th_category+"','"+th_description+"')";
 
-			// select•¶‚ğÀs‚µResultSetƒCƒ“ƒ^[ƒtƒFƒCƒX‚ğÀ‘•‚µ‚½ƒNƒ‰ƒX‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‚ª•Ô‚é
+
 			int i=st.executeUpdate(sql);
-			System.out.print(i);
-			System.out.println(sql);
+			System.out.println(i);
+			System.out.println("CreateThreadã§å®Ÿè¡Œã•ã‚ŒãŸSQLã¯"	+sql);
 
-
-
-			//Oracle‚©‚çØ’f‚·‚é
 			cn.close();
 
-			System.out.println("Ø’fŠ®—¹");
 		}catch(ClassNotFoundException e){
 			e.printStackTrace();
-			System.out.println("ƒNƒ‰ƒX‚ª‚È‚¢‚İ‚½‚¢B");
 		}catch(SQLException e){
 			e.printStackTrace();
-			System.out.println("SQLŠÖ˜A‚Ì—áŠO‚İ‚½‚¢B");
 		}catch(Exception e){
 			e.printStackTrace();
 		}

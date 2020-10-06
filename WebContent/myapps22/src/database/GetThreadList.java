@@ -2,15 +2,15 @@ package database;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.SQLException;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.List;
 import java.util.ArrayList;
+import java.util.List;
 
 import bean.ThreadListProfile;
 
-public class listQuery{
+public class GetThreadList{
 
   public static List<ThreadListProfile> getQueryList(){
 
@@ -20,9 +20,8 @@ public class listQuery{
       Class.forName("oracle.jdbc.driver.OracleDriver");
 
       Connection cn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl", "cprimeuser", "cprime");
-      System.out.println("ThreadQuery_L33");
 
-      String sql = "SELECT*FROM board_thread　order by th_id";
+      String sql = "SELECT*FROM board_thread ORDER BY th_id";
       Statement st = cn.createStatement();
 
       ResultSet rs = st.executeQuery(sql);
@@ -48,13 +47,11 @@ public class listQuery{
 
       cn.close();
 
-      System.out.println("ThreadQuery_L56");
+      System.out.println("GetThreadList");
     }catch(ClassNotFoundException e){
       e.printStackTrace();
-      System.out.println("ThreadQuery_L59");
     }catch(SQLException e){
       e.printStackTrace();
-      System.out.println("SQL関連のエラー");
     }catch(Exception e){
       e.printStackTrace();
     }

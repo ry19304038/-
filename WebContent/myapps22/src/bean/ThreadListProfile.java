@@ -1,7 +1,6 @@
 package bean;
-import java.io.Serializable;
 
-public class ThreadListProfile implements Serializable{
+public class ThreadListProfile extends AbstractBean{
   private String th_id;
   private String th_title;
   private String th_name;

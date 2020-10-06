@@ -1,7 +1,6 @@
 package bean;
-import java.io.Serializable;
 
-public class ResProfile implements Serializable{
+public class ResProfile extends AbstractBean{
     private String res_name;
     private String res_text;
     private String res_likes;
@@ -9,7 +8,7 @@ public class ResProfile implements Serializable{
     private String res_id;
     private String th_id;
     private String res_date;
-    private String kaigyou;
+    //private String kaigyou;
 
 
     public void setRes_name(String res_name){
@@ -57,12 +56,6 @@ public class ResProfile implements Serializable{
     public String getRes_date(){
         return res_date;
     }
-    // public void setRes_kaigyou(String kaigyou){
-    //     this.kaigyou=kaigyou;
-    // }
-    // public String getRes_kaigyou(){
-    //     return kaigyou;
-    // }
-    //てすと
+
 
 }
